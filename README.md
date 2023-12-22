@@ -1,3 +1,5 @@
+## Probably my best shellshockers mod
+
 ### Features
 - Custom player avatars
 - Custom death sound effects
