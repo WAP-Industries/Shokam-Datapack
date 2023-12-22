@@ -47,7 +47,7 @@
 // @match        *://zygote.cafe/*
 // @grant        none
 // @run-at       document-start
-// @icon         https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/logo.jpg
+// @icon         https://raw.githubusercontent.com/WAP-Industries/Shokam-Datapack/main/logo.jpg
 // ==/UserScript==
 
 function changeTheme(){
@@ -56,14 +56,14 @@ function changeTheme(){
             background-size: 100% 100%;   
         }
         :root{
-            --ss-lightoverlay: url("https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/assets/themes/background.jpg");
+            --ss-lightoverlay: url("https://raw.githubusercontent.com/WAP-Industries/Shokam-Datapack/main/assets/themes/background.jpg");
             background-size: 100% 100%;
         }
     `
     document.head.innerHTML+=`<style>${css}</style>`
     ;[...document.querySelectorAll('link')]
         .filter(i=>i.href.includes("shellshock.io/favicon"))
-        .map(i=>i.href="https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/assets/themes/icon.jpg")
+        .map(i=>i.href="https://raw.githubusercontent.com/WAP-Industries/Shokam-Datapack/main/assets/themes/icon.jpg")
     document.title = "Salakau Shockers"
 }
 (()=>(document.body ? changeTheme() : document.addEventListener("DOMContentLoaded", _=>changeTheme())))()
@@ -99,7 +99,7 @@ window.XMLHttpRequest = class extends window.XMLHttpRequest {
                         console.log("startGame()");
                         (async ()=>{
                             await window.BAWK.loadSound(
-                                "https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/assets/audio/death.wav",
+                                "https://raw.githubusercontent.com/WAP-Industries/Shokam-Datapack/main/assets/audio/death.wav",
                                 "shokam_scream"
                             );
                         })();
@@ -129,7 +129,7 @@ function changeSky(BABYLON, scene){
     
     if (!scene.modded){
         mesh.material.diffuseTexture = new BABYLON.Texture(
-            "https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/assets/sky/texture.png", 
+            "https://raw.githubusercontent.com/WAP-Industries/Shokam-Datapack/main/assets/sky/texture.png", 
             scene
         )
         mesh.material.useAlphaFromDiffuseTexture = true
@@ -191,8 +191,9 @@ function changePlayers(BABYLON, players){
             }
 
             const index = randInt(1,7),
-                p1 = create_plane(`https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/assets/avatars/${index}-front.png`),
-                p2 = create_plane(`https://raw.githubusercontent.com/WAP-Industries/Shellshockers-Mods/main/Shokam%20Datapack/assets/avatars/${index}-back.png`)
+                dir = "https://raw.githubusercontent.com/WAP-Industries/Shokam-Datapack/main/assets/avatars/"
+                p1 = create_plane(`${dir}${index}-front.png`),
+                p2 = create_plane(`${dir}${index}-back.png`)
             p2.position.z = -0.01
 
             player.modded = true
